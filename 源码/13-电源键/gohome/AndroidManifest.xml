@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lm.gohome"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="19" />
+
+    <application
+        android:label="桌面回退"
+        android:allowBackup="false">
+
+        <!-- 只是为了"安装后能被系统认作已启动"（清 stopped 状态），
+             没有 launcher intent-filter，所以桌面上不会多出图标 -->
+        <activity
+            android:name=".MainActivity"
+            android:theme="@android:style/Theme.NoDisplay"
+            android:excludeFromRecents="true"
+            android:noHistory="true"
+            android:taskAffinity=""
+            android:exported="true" />
+
+        <!-- 电源键"回桌面"的真正执行者：
+             系统 PowerManagerService 在 isHome=false 时发这条有序广播，
+             原厂是 vulture.app.home 接收，我们接管它。 -->
+        <receiver
+            android:name=".GohomeReceiver"
+            android:exported="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.nemo.action.GOHOME" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,41 @@
+# 签名密钥与证书 —— 绝不入库
+*.jks
+*.keystore
+*.p12
+*.pfx
+storepass*
+keypass*
+
+# 构建产物
+*.apk
+*.idsig
+*.apk.idsig
+*.class
+*.dex
+build/
+gen/
+dex/
+out/
+bin/
+*.o
+*.a
+
+# 备份与临时
+*.bak
+*.bak-*
+*.good-*
+*.orig
+*~
+*.log
+*.tmp
+*.swp
+
+# 系统
+.DS_Store
+Thumbs.db
+__pycache__/
+*.pyc
+
+# 本机配置
+local.properties
+*.local.*

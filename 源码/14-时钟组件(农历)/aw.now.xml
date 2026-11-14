@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<gs version="1">
+<p pkg="vulture.app.home" cl="vulture.appwidget.TelephoneAppwidget" />
+<p pkg="vulture.app.home" cl="vulture.appwidget.MessageCenterAppwidget" />
+<p pkg="vulture.app.home" cl="vulture.appwidget.ScheduleAppwidget" />
+<p pkg="com.xylink.weatherwidget" cl="com.xylink.weatherwidget.WeatherWidget" />
+<p pkg="com.xylink.timewidget" cl="com.xylink.timewidget.TimeWidget" />
+<h pkg="android" id="400" />
+<h pkg="com.xylink.launcher" id="400" />
+<g id="e0" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="e4" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="e5" h="0" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="fb" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="fc" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="fd" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="fe" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="119" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="11a" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="11b" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="11c" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="141" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="142" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="143" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="144" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="14b" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="14c" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="14d" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="14e" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="150" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="151" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="152" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="153" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="15a" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="15b" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="15c" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="15d" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="15f" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="160" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="161" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="162" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="164" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="165" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="166" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="167" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="169" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="16a" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="16b" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="16c" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="173" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="174" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="175" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="176" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="17c" h="1" p="4" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="17d" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="17e" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="17f" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="180" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="181" h="1" p="4" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="182" h="1" p="3" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="183" h="1" p="0" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="184" h="1" p="2" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<g id="185" h="1" p="1" min_width="0" min_height="0" max_width="0" max_height="0" host_category="1" />
+<b packageName="com.xylink.launcher" />
+</gs>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lm.files"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="19" />
+
+    <!-- 刻意不申请 INTERNET 权限：本应用百分之百离线，只读本地存储 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:label="文件夹"
+        android:icon="@drawable/ic_folder"
+        android:hardwareAccelerated="true">
+
+        <activity
+            android:name=".FilesActivity"
+            android:label="文件夹"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!--
+              抢原厂「文件夹」的隐式 action。
+
+              原厂桌面条目存的 Intent 是：
+                action=nemo.itent.action.activity.MyFullScreenWebActivity
+                launchFlags=0x30000000
+                S.web_url=https://cloud.xylink.com/vods/sharecenter/nemosharecenter
+              注意：**不带 package、不带 component**，是纯隐式 Intent，
+              所以由「谁声明了这个 action」决定落到谁身上。
+
+              而 com.xylink.launcher 只要重建一次 item_info，
+              就会把这条 Intent 冲回上面的原厂值（这是它整表恢复默认布局的副作用，
+              同时还会吞掉其他第三方条目）。改数据库是一次性的，抢 action 才是长效的。
+
+              PackageManager.chooseBestActivity 的规则：
+              前两个匹配项 priority 不同时，直接取高的那个，不弹选择框。
+              所以 priority=100 可以稳压 vulture.app.home 的 0。
+              实测（2026-11-05 19:0x）确认无选择框、直接进 com.lm.files。
+            -->
+            <intent-filter android:priority="100">
+                <action android:name="nemo.itent.action.activity.MyFullScreenWebActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ImageActivity"
+            android:label="查看图片"
+            android:screenOrientation="landscape"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+    </application>
+</manifest>

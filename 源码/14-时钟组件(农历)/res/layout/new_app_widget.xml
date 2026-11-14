@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp">
+
+    <!-- 大时间：与原厂完全一致 96sp / 白90% / 左边距20 -->
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:includeFontPadding="false"
+        android:textSize="96sp"
+        android:textColor="@color/white_90_percent"
+        android:text="08:55" />
+
+    <!-- 秒：48sp / 白60%，基线对齐大时间，紧跟其后 -->
+    <TextView
+        android:id="@+id/tv_sec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_time"
+        android:layout_alignBaseline="@id/tv_time"
+        android:layout_marginLeft="4dp"
+        android:includeFontPadding="false"
+        android:textSize="48sp"
+        android:textColor="@color/white_60_percent"
+        android:text="36" />
+
+    <!-- 日期：原厂样式 -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_time"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="28dp"
+        android:includeFontPadding="false"
+        android:textSize="24sp"
+        android:textColor="@color/white_90_percent"
+        android:text="11月02日 周一" />
+
+    <!-- 农历：原厂样式 -->
+    <TextView
+        android:id="@+id/tv_lunar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tv_date"
+        android:layout_alignBaseline="@id/tv_date"
+        android:layout_marginLeft="10dp"
+        android:textSize="19sp"
+        android:textColor="@color/white_60_percent"
+        android:maxLines="1"
+        android:text="丙午年农历九月廿四" />
+
+</RelativeLayout>

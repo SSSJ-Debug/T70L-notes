@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 天气卡片：风格对齐原厂时钟（透明底、白色细体、大字号） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/wx_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="34dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <!-- 左侧：当前温度 -->
+    <TextView
+        android:id="@+id/wx_temp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="--°"
+        android:textColor="#FFFFFF"
+        android:textSize="68sp"
+        android:includeFontPadding="false"
+        android:shadowColor="#66000000"
+        android:shadowDx="0"
+        android:shadowDy="2"
+        android:shadowRadius="6" />
+
+    <!-- 右侧：现象 / 城市 / 高低温 / 空气 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginLeft="22dp">
+
+        <TextView
+            android:id="@+id/wx_cond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="--"
+            android:textColor="#FFFFFF"
+            android:textSize="23sp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:shadowColor="#66000000"
+            android:shadowDx="0"
+            android:shadowDy="1"
+            android:shadowRadius="4" />
+
+        <TextView
+            android:id="@+id/wx_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#CCFFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="3dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/wx_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#CCFFFFFF"
+            android:textSize="16sp"
+            android:layout_marginTop="1dp"
+            android:maxLines="1" />
+
+        <TextView
+            android:id="@+id/wx_aqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#99FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginTop="2dp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+</LinearLayout>
