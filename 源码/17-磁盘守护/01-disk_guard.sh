@@ -47,7 +47,9 @@ log() {
 }
 
 free_kb() {
-    $BB df "$DATA" 2>/dev/null | $BB tail -n 1 | $BB awk '{print $4}'
+    # ★ 必须带 -k：本机 df 默认输出人读格式（5.1G / 8%），按 KB 解析会把 "8%" 当数字
+    # ★ 设备名太长会折行，取「最后一行的倒数第 2 段」= Available（折行与否都成立）
+    $BB df -k "$DATA" 2>/dev/null | $BB awk 'END{print $(NF-2)}'
 }
 
 human() {
