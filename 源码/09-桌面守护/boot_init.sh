@@ -26,7 +26,19 @@ BB=/sbin/busybox
 LOG=/data/local/tmp/boot_init.log
 GW=/data/local/tmp/t70gw2.sh
 
-log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; }
+log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; _caplog; }
+
+# ★ 写盘红线：日志必须封顶。2026-11-23 事故：守护日志无上限 + 崩溃转储 = /data 写满卡开机
+_capn=0
+_caplog() {
+    _capn=$((_capn + 1))
+    [ $((_capn % 50)) -ne 0 ] && return 0
+    _s=$($BB wc -c < "$LOG" 2>/dev/null)
+    [ -z "$_s" ] && return 0
+    [ "$_s" -gt 262144 ] || return 0
+    $BB tail -c 131072 "$LOG" > "$LOG.t" 2>/dev/null && $BB mv -f "$LOG.t" "$LOG"
+    return 0
+}
 
 now_ms() { $BB date +%s; }
 

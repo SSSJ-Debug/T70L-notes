@@ -1,4 +1,14 @@
 #!/system/bin/sh
+# ###########################################################################
+# ⚠️⚠️ 危险：这个脚本默认**不要启动**，仅供逆向参考 ⚠️⚠️
+#
+#   它会和原厂 vulture.app.home 抢 isHome 状态，实测后果：
+#     · 按电源键直接重启（不是息屏）
+#     · 崩溃循环 → 每 10 秒一条 2.9MB 崩溃转储 → /data 写满 → 卡开机第一屏
+#
+#   确实要试，务必先起磁盘守护（源码/17-磁盘守护/），并且准备好随时 kill。
+#   红线详见 docs/00-总览/红线-磁盘绝不能写满.md
+# ###########################################################################
 # homekey_guard.sh —— T70L 电源键「在软件里=HOME」状态守护（2026-11-07）
 #
 # == 这个脚本解决什么问题 ==
@@ -52,7 +62,19 @@ STF=$D/homekey_guard.state
 HOME_ACTION=com.nemo.action.HOME
 LAUNCHERS=" com.xylink.launcher vulture.app.lanucher com.android.launcher "
 
-log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; }
+log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; _caplog; }
+
+# ★ 写盘红线：日志必须封顶。2026-11-23 事故：守护日志无上限 + 崩溃转储 = /data 写满卡开机
+_capn=0
+_caplog() {
+    _capn=$((_capn + 1))
+    [ $((_capn % 50)) -ne 0 ] && return 0
+    _s=$($BB wc -c < "$LOG" 2>/dev/null)
+    [ -z "$_s" ] && return 0
+    [ "$_s" -gt 262144 ] || return 0
+    $BB tail -c 131072 "$LOG" > "$LOG.t" 2>/dev/null && $BB mv -f "$LOG.t" "$LOG"
+    return 0
+}
 
 # 取当前顶层包名
 top_pkg() {

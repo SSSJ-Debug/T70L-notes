@@ -37,7 +37,19 @@ STD='听歌:1:1:1:x,哔哩哔哩:0:2:1:bili,天气:0:2:0:w,小智:1:0:1:x,录像
 
 SIGSQL="SELECT group_concat(title||':'||screen||':'||cellX||':'||cellY||':'||CASE WHEN itemType=4 THEN 'w' WHEN intent LIKE '%com.lm.files%' THEN 'files' WHEN intent LIKE '%com.lm.bili%' THEN 'bili' WHEN intent LIKE '%com.lm.tv%' THEN 'tv' WHEN intent LIKE '%RECORD%' THEN 'rec' WHEN intent LIKE '%systemsettings%' THEN 'set' WHEN itemType=2 THEN 'x' ELSE '?' END, ',') FROM (SELECT * FROM item_info ORDER BY title);"
 
-log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; }
+log() { echo "$($BB date '+%m-%d %H:%M:%S') $*" >> $LOG; _caplog; }
+
+# ★ 写盘红线：日志必须封顶。2026-11-23 事故：守护日志无上限 + 崩溃转储 = /data 写满卡开机
+_capn=0
+_caplog() {
+    _capn=$((_capn + 1))
+    [ $((_capn % 50)) -ne 0 ] && return 0
+    _s=$($BB wc -c < "$LOG" 2>/dev/null)
+    [ -z "$_s" ] && return 0
+    [ "$_s" -gt 262144 ] || return 0
+    $BB tail -c 131072 "$LOG" > "$LOG.t" 2>/dev/null && $BB mv -f "$LOG.t" "$LOG"
+    return 0
+}
 
 # ★ 2026-11-06 关键修复：签名必须从 ContentProvider 读，不能 sqlite3 直读数据库。
 #   实测同一个时刻：content query 看到 12 条（桌面真实状态），
